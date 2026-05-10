@@ -1,0 +1,272 @@
+@import 'remixicon/fonts/remixicon.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    /* font-family: "Cinzel Decorative";
+    font-weight: 700; 
+    font-weight: 400; */ 
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    position: relative;
+}
+
+.bg-blur {
+  position: absolute;
+  inset: 0;
+  background: url(./images/bg.webp) center/cover;
+  filter: blur(6px);
+  z-index: 0;
+}
+
+.nav {
+    position: relative;
+    height: 10%;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1;
+}
+
+.nav h1 {
+    font-size: 1.58rem;
+    font-family: "cinzel decorative";
+    font-weight: 700;
+}
+
+.nav img {
+    height: 30px;
+    width: auto;
+}
+
+.nav .links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav .links li {
+    font-size: 1.125rem;
+    font-family: "cinzel decorative";
+    font-weight: 200;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: color 0.3s ease;
+}
+
+.nav .links li:hover {
+    color: #ff4081;
+    scale: 1.02;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.buttons button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttons button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 90px);
+  position: relative;
+  padding: 0 20px 80px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: min(1200px, 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-left-text,
+.hero-right-text {
+  flex: 1;
+  max-width: 320px;
+}
+
+.hero-left-text {
+  text-align: right;
+  padding-right: 12px;
+  transform: translateY(-24px);
+}
+
+.hero-right-text {
+  text-align: left;
+  padding-left: 12px;
+  transform: translateY(22px);
+}
+
+.hero-img {
+  width: min(420px, 38%);
+  z-index: 2;
+}
+
+.hero-img img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+h1 {
+  font-size: clamp(4rem, 6vw, 7rem);
+  color: white;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.hero-left-text p,
+.hero-right-text p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-left-text p {
+  margin-bottom: 1rem;
+}
+
+.hero-right-text p {
+  margin-top: 1rem;
+}
+
+.mint-btn {
+  background: linear-gradient(180deg, #f0d060, #c8980a);
+  color: #1a1000;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 4px;
+  padding: 18px 60px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  clip-path: polygon(6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%, 0% 50%);
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.mint-btn:hover {
+  background: linear-gradient(180deg, #fde070, #e0aa10);
+  transform: translate(-50%, -50%) scale(1.12) rotateY(5deg);
+  box-shadow: 0 0 50px #c8980add, 0 20px 60px rgba(200, 152, 10, 0.4), inset 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.vision {
+  background: #2a2030;
+  padding: 60px 80px;
+  margin-top: -280px;
+  position: relative;
+  z-index: 2;
+}
+
+/* heading */
+.vision-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.vision-header h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 36px;
+  color: #e8c84a;
+  letter-spacing: 6px;
+  margin-bottom: 16px;
+}
+
+/* divider */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.line {
+  width: 300px;
+  height: 1px;
+  background: #c8a84a;
+}
+
+.diamond {
+  width: 10px;
+  height: 10px;
+  background: #c8a84a;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* two column text */
+.vision-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.vision-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #b0a8b0;
+  line-height: 1.9;
+}
+
+.vision-content strong {
+  color: white;
+  font-weight: 600;
+}
