@@ -31,31 +31,42 @@ body {
 }
 
 /* header section */
+header {
+    height: 15vh;
+    width: 100%;
+    position: relative;
+    z-index: 100;
+}
+
 header .tag {
     background-color: var(--primary-color);
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--font-color-1);
-    font-family: var(--font-2);
 }
 
 header .tag p {
-    font-size: 14px;
+    font-family: var(--font-2);
+    text-transform: uppercase;
+    padding: .0938rem 0;
+    font-size: .875rem;
 }
 
 header nav {
-    margin: 20px;
-    padding: 10px 20px;
-    height: 80px;
+    margin: 1.25rem;
+    padding: .625rem 1.25rem;
+    height: 5rem;
     background-color: var(--background-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid var(--font-color-2);
     border-radius: 15px;
-    font-size: 18px;
-    position: relative;
+    font-size: 1.125rem;
+    position: sticky;
+    top: 20px;
+    z-index: 10;
 }
 
 header nav .left-nav ul {
@@ -72,20 +83,17 @@ header nav .left-nav ul li a {
 }
 
 header nav .left-nav ul li i {
-    margin-left: 8px;
+    margin-left: .5rem;
 }
 
-header nav .mid-nav img{
-    position: absolute;
-    top: 50%;
-    left: 47%;
-    translate: -50% -50%;
+header nav .mid-nav img {
+    margin-left: 9.375rem;
 }
 
 header nav .right-nav ul {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 1.875rem;
     text-transform: uppercase;
 }
 
@@ -98,27 +106,66 @@ header nav .right-nav ul li a {
 
 /* icons */
 header nav .left-nav ul li i {
-    padding: 2px;
-    font-size: 12px;
+    padding: .25rem;
+    font-size: .75rem;
     color: var(--font-color-2);
     background-color: var(--icon-bg);
     border: 1px solid var(--primary-color);
     border-radius: 50%;
 }
 
-/* hero section */
-.hero {
-    height: 80vh;
-    width: 100%;
-    position: relative;
+header nav .right-nav ul li i {
+    color: var(--primary-color);
+    font-size: 1.125rem;
 }
 
-.hero img{
-    height: 100%;
+/* hero section */
+.hero {
+    height: 95vh;
     width: 100%;
-    object-fit: cover;
+    margin-top: -15vh;
+    position: relative;
     z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
+    background-image: url(https://www.twoleavestea.com/cdn/shop/files/AlpineBerry.webp?v=1774284236&width=1280);
+    background-size: 160%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.hero .hero-text {
+    height: 100%;
+    width: 50%;
+    padding: 1.875rem;
+    color: var(--font-color-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 15px;
+}
+
+.hero-text h1 {
+    width: 60%;
+    font-family: var(--font-1);
+    font-size: 5rem;
+    font-weight: 500;
+    word-spacing: .1875rem;
+}
+
+.hero-text p {
+    width: 74%;
+    font-family: var(--font-2);
+    font-size: .9rem;
+    font-weight: 300;
+}
+
+.hero-text button {
+    width: 30%;
+    padding: 15px 40px;
+    font-size: .9rem;
+    font-weight: 500;
+    font-family: var(--font-2);
+    background-color: var(--primary-color);
+    color: var(--font-color-1);
+    border-radius: 50px;
+    border: none;
 }
