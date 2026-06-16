@@ -172,14 +172,14 @@ header nav .right-nav ul li i {
 
 /* best sellers */
 .best-sellers {
-    height: 120vh;
+    height: 100vh;
     width: 100%;
     padding: 1.875rem 3.125rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.25rem;
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
 }
 
 .best-sellers p {
@@ -284,12 +284,13 @@ header nav .right-nav ul li i {
     height: 35%;
     width: 100%;
     padding: 10px 0;
+    background-color: royalblue;
 }
 
 .product-container .product .product-text h2 {
     width: 70%;
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 500;
     text-transform: capitalize;
     font-family: var(--font-1);
     color: var(--primary-color);
@@ -299,11 +300,25 @@ header nav .right-nav ul li i {
     width: fit-content;
     font-family: var(--font-2);
     font-size: .75rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .product-container .product .product-text .description {
+    width: 90%;
+    margin: 0;
     font-family: var(--font-2);
     font-size: .75rem;
     font-weight: 500;
+}
+
+.best-sellers button {
+    width: 22%;
+    padding: 15px 40px;
+    font-size: .9rem;
+    font-weight: 500;
+    font-family: var(--font-2);
+    background-color: var(--primary-color);
+    color: var(--font-color-1);
+    border-radius: 50px;
+    border: none;
 }
