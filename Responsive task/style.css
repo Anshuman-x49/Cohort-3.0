@@ -170,6 +170,14 @@ header nav .right-nav ul li i {
     border: none;
 }
 
+.hero-text button:hover {
+    background-color: var(--background-color);
+    color: var(--font-color-2);
+    border: 1px solid var(--font-color-2);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
 /* best sellers */
 .best-sellers {
     min-height: 100vh;
