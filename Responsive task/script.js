@@ -1,3 +1,4 @@
+gsap.registerPlugin(ScrollTrigger);
 const timeLine = gsap.timeline();
 
 const landingpageAnimation = () => {
@@ -54,4 +55,54 @@ const landingpageAnimation = () => {
   });
 };
 
+const scroll = () => {
+  const paragraph = document.querySelector(".best-sellers > p");
+  if (paragraph) {
+    const words = paragraph.innerHTML.split(" ");
+    paragraph.innerHTML = words
+      .map(word => `<span class="word" style="display: inline-block; margin-right: 6px;">${word}</span>`)
+      .join(" ");
+  }
+
+  gsap.from(".best-sellers > p .word", {
+    opacity: 0,
+    y: 100,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".best-sellers > p",
+      start: "top 80%",
+      once: true,
+    },
+  });
+
+  gsap.from(".best-sellers h1", {
+    opacity: 0,
+    y: -100,
+    duration: 0.8,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".best-sellers h1",
+      start: "top 90%",
+      once: true,
+    },
+  });
+
+  gsap.from(".product", {
+    y: 100,
+    opacity: 0,
+    duration: 1.2,
+    stagger: 0.2,
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: ".product-container",
+      start: "top 85%",
+      once: true,
+    },
+  });
+};
+
 landingpageAnimation();
+
+scroll();
