@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack Pro - Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="auth.js"></script>
+    <script>
+        checkAuth(false);
+    </script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --input-bg: rgba(15, 23, 42, 0.6);
+            --error-color: #ef4444;
+            --success-color: #22c55e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.3) 0%, transparent 70%);
+            top: -50px;
+            left: -50px;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+            bottom: -100px;
+            right: -100px;
+            z-index: 0;
+        }
+
+        .auth-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 450px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInScale 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .brand-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .brand-header i {
+            font-size: 2.5rem;
+            color: #818cf8;
+            background: linear-gradient(135deg, #818cf8 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .brand-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            letter-spacing: 0.2px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .input-wrapper input, .input-wrapper select {
+            width: 100%;
+            padding: 12px 14px 12px 42px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .input-wrapper select {
+            cursor: pointer;
+        }
+
+        .select-wrapper::after {
+            content: '\ea4c';
+            font-family: 'remixicon';
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+            font-size: 1.2rem;
+        }
+
+        .input-wrapper input:focus, .input-wrapper select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+        }
+
+        .input-wrapper input:focus + i, .input-wrapper select:focus + i {
+            color: #818cf8;
+        }
+
+        .alert {
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .alert-error {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+
+        .alert-success {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            color: #86efac;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            border: none;
+            border-radius: 10px;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.95;
+        }
+
+        .btn-submit:active {
+            transform: translateY(1px);
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .auth-footer a {
+            color: #818cf8;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 4px;
+            transition: color 0.2s;
+        }
+
+        .auth-footer a:hover {
+            color: #a5b4fc;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="brand-header">
+            <i class="ri-stack-fill"></i>
+            <h2>Create Account</h2>
+            <p>Get started with FinTrack Pro today</p>
+        </div>
+
+        <div id="alertBox" class="alert">
+            <i class="ri-error-warning-line"></i>
+            <span id="alertMsg"></span>
+        </div>
+
+        <form id="registerForm">
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label for="username">Username</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="username" placeholder="Choose a username" required autocomplete="username">
+                        <i class="ri-user-line"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="••••••••" required autocomplete="new-password">
+                        <i class="ri-lock-line"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirmPassword" placeholder="••••••••" required autocomplete="new-password">
+                        <i class="ri-lock-check-line"></i>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="currency">Primary Currency</label>
+                    <div class="input-wrapper select-wrapper">
+                        <select id="currency" required>
+                            <option value="$">USD ($)</option>
+                            <option value="€">EUR (€)</option>
+                            <option value="£">GBP (£)</option>
+                            <option value="₹">INR (₹)</option>
+                            <option value="¥">JPY (¥)</option>
+                        </select>
+                        <i class="ri-wallet-3-line"></i>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Sign Up</button>
+        </form>
+
+        <div class="auth-footer">
+            Already have an account? <a href="login.html">Sign In</a>
+        </div>
+    </div>
+
+    <script>
+        const registerForm = document.getElementById('registerForm');
+        const alertBox = document.getElementById('alertBox');
+        const alertMsg = document.getElementById('alertMsg');
+
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const usernameVal = document.getElementById('username').value.trim();
+            const passwordVal = document.getElementById('password').value;
+            const confirmPasswordVal = document.getElementById('confirmPassword').value;
+            const currencyVal = document.getElementById('currency').value;
+
+            alertBox.style.display = 'none';
+
+            if (!usernameVal || !passwordVal || !confirmPasswordVal) {
+                showAlert('Please fill in all fields.', 'error');
+                return;
+            }
+
+            if (passwordVal !== confirmPasswordVal) {
+                showAlert('Passwords do not match.', 'error');
+                return;
+            }
+
+            if (passwordVal.length < 4) {
+                showAlert('Password should be at least 4 characters long.', 'error');
+                return;
+            }
+
+            const res = registerUser(usernameVal, passwordVal, currencyVal);
+
+            if (res.success) {
+                showAlert(res.message, 'success');
+                registerForm.reset();
+                setTimeout(() => {
+                    window.location.replace('login.html');
+                }, 1500);
+            } else {
+                showAlert(res.message, 'error');
+            }
+        });
+
+        function showAlert(msg, type) {
+            alertMsg.textContent = msg;
+            alertBox.className = `alert alert-${type}`;
+            alertBox.style.display = 'flex';
+            if (type === 'success') {
+                alertBox.querySelector('i').className = 'ri-checkbox-circle-line';
+            } else {
+                alertBox.querySelector('i').className = 'ri-error-warning-line';
+            }
+        }
+    </script>
+</body>
+</html>
